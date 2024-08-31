@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Image</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Upload Your Images</h1>
+        </header>
+        <section>
+            <form id="upload-form">
+                <div class="custom-file-input">
+                    <label for="image-input">Choose Images</label>
+                    <input type="file" id="image-input" accept="image/*" multiple required>
+                    <span id="file-names">No files chosen</span>
+                </div>
+                <button type="submit">Upload</button>
+            </form>
+            <div id="uploaded-images"></div>
+            <div id="controls">
+                <a href="index.html" class="home-button">Home</a>
+            </div>
+        </section>
+    </div>
+    <script>
+        // Show the file names after selecting images
+        const imageInput = document.getElementById('image-input');
+        const fileNames = document.getElementById('file-names');
+        const uploadedImages = document.getElementById('uploaded-images');
+
+        imageInput.addEventListener('change', function() {
+            const files = Array.from(this.files);
+            fileNames.textContent = files.map(file => file.name).join(', ');
+            uploadedImages.innerHTML = ''; // Clear previous images
+
+            files.forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.alt = file.name;
+                    img.classList.add('uploaded-image');
+                    uploadedImages.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+
+        // Handle form submission
+        const uploadForm = document.getElementById('upload-form');
+        uploadForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const files = imageInput.files;
+            if (files.length > 0) {
+                alert(`Uploading ${files.length} files: ${Array.from(files).map(file => file.name).join(', ')}`);
+                // You can add your upload logic here, e.g., sending the files to the server
+            } else {
+                alert('Please select one or more image files first.');
+            }
+        });
+    </script>
+</body>
+</html>

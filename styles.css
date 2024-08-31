@@ -1,0 +1,264 @@
+/* Import the Anton font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+/* Base styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: url('background.jpeg') no-repeat center center fixed;
+    background-size: cover; /* Adjust to 'contain' if needed */
+    background-color: #333; /* Fallback color */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+header {
+    background-color: #212121;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 4em;
+    margin: 0;
+    color: #e0e0e0;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #b0b0b0;
+    margin-top: 10px;
+}
+
+main {
+    margin-top: 20px;
+}
+
+#intro h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+#intro p {
+    font-size: 1.2em;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav li {
+    background-color: #3498db;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 25px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav li:hover {
+    background-color: #2980b9;
+    transform: translateY(-5px);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    nav li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+#camera-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Video Container Styling */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+video {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* Upload Form Styling */
+.custom-file-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px dashed #3498db;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.custom-file-input label {
+    font-size: 1.5em;
+    color: #2980b9;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.custom-file-input input[type="file"] {
+    display: none;
+}
+
+.custom-file-input span {
+    font-size: 1.2em;
+    color: #7f8c8d;
+}
+
+.custom-file-input:hover {
+    border-color: #2980b9;
+}
+
+/* Upload Button Styling */
+button[type="submit"] {
+    padding: 10px 30px;
+    font-size: 1.5em;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+#uploaded-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.uploaded-image {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.uploaded-image:hover {
+    transform: scale(1.05);
+}
+
+/* Bottom Bar */
+#bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Home Button */
+#home-button {
+    font-size: 1.2em;
+    padding: 8px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#home-button:hover {
+    background-color: #2980b9;
+}
+
+/* Camera Select Pop-down */
+#camera-select-container {
+    display: flex;
+    align-items: center;
+}
+
+#camera-select-container label {
+    color: white;
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+#camera-select-container select {
+    font-size: 1em;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    color: #333;
+}
+
+/* Media Queries for Extra Responsiveness */
+@media (max-width: 600px) {
+    #bottom-bar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #home-button {
+        margin-bottom: 10px;
+        max-width: 100%;
+        width: auto;
+    }
+
+    #camera-select-container {
+        justify-content: center;
+        width: 100%;
+    }
+}

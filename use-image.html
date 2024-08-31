@@ -21,10 +21,10 @@
                 <button type="submit">Upload</button>
             </form>
             <div id="uploaded-images"></div>
-            <div id="controls">
-                <a href="index.html" class="home-button">Home</a>
-            </div>
         </section>
+        <div id="controls">
+            <a href="index.html" id="home-button">Home</a>
+        </div>
     </div>
     <script>
         // Show the file names after selecting images
@@ -34,7 +34,7 @@
 
         imageInput.addEventListener('change', function() {
             const files = Array.from(this.files);
-            fileNames.textContent = files.map(file => file.name).join(', ');
+            fileNames.textContent = files.length > 0 ? files.map(file => file.name).join(', ') : 'No files chosen';
             uploadedImages.innerHTML = ''; // Clear previous images
 
             files.forEach(file => {
@@ -57,7 +57,7 @@
 
             const files = imageInput.files;
             if (files.length > 0) {
-                alert(`Uploading ${files.length} files: ${Array.from(files).map(file => file.name).join(', ')}`);
+                alert(`Uploading ${files.length} file(s): ${Array.from(files).map(file => file.name).join(', ')}`);
                 // You can add your upload logic here, e.g., sending the files to the server
             } else {
                 alert('Please select one or more image files first.');
